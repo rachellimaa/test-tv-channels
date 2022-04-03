@@ -1,0 +1,32 @@
+import com.rachellimaa.gradle.Depends
+
+apply plugin: 'com.android.application'
+apply plugin: "kotlin-android"
+apply from: "$rootDir/buildScripts/android-config.gradle"
+
+android {
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+
+        release {
+            proguardFiles getDefaultProguardFile("proguard-android.txt")
+            debuggable true
+            minifyEnabled true
+        }
+    }
+}
+
+dependencies {
+    implementation(project(':config'))
+    implementation(project(':features'))
+
+    implementation Depends.Koin.koin
+    implementation Depends.Koin.koinExt
+    implementation Depends.Koin.koinAndroid
+
+    implementation(Depends.Android.material)
+}

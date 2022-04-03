@@ -1,0 +1,2 @@
+-flattenpackagehierarchy 'gm'
+-dontwarn com.rachellimaa.**

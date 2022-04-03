@@ -1,0 +1,34 @@
+import com.rachellimaa.gradle.Depends
+
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: "kotlinx-serialization"
+apply from: "$rootDir/buildScripts/android-config.gradle"
+
+dependencies {
+    implementation(project(':config'))
+
+    implementation(Depends.Android.appCompat)
+    implementation(Depends.Android.constraint)
+    implementation(Depends.Android.material)
+    implementation(Depends.Android.recyclerview)
+
+    implementation(Depends.Glide.core)
+    annotationProcessor(Depends.Glide.compiler)
+
+    implementation(Depends.JetPack.viewModel)
+
+    implementation(Depends.Koin.koin)
+    implementation(Depends.Koin.koinExt)
+    implementation(Depends.Koin.koinAndroid)
+
+    implementation(Depends.Kotlin.coroutines)
+    implementation(Depends.Retrofit.core)
+    implementation(Depends.Kotlin.serialization)
+
+    testImplementation(Depends.Kotlin.Test.junit)
+    testImplementation(Depends.Test.Mockk.core)
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+}

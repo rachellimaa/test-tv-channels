@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_smallest">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medim">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_largest">32dp</dimen>
+
+    <dimen name="font_size_small">15sp</dimen>
+    <dimen name="font_size_medium">17sp</dimen>
+    <dimen name="font_size_large">22sp</dimen>
+
+    <dimen name="image_width">100dp</dimen>
+
+    <dimen name="corner_radius">5dp</dimen>
+</resources>

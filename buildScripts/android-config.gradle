@@ -1,0 +1,47 @@
+import com.rachellimaa.gradle.Env
+
+android {
+    compileSdkVersion Env.Android.compileSdk
+    buildToolsVersion Env.Android.buildToolsVersion
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion Env.Android.minSupportedSDK
+        targetSdkVersion Env.Android.targetSdk
+        versionCode Env.Build.versionCode
+        versionName Env.Build.versionName
+
+        consumerProguardFiles fileTree(dir: "$rootDir/buildScripts/proguard", include: ["*.pro"]).asList().toArray()
+        consumerProguardFiles fileTree(dir: "proguard", include: ["*.pro"]).asList().toArray()
+
+        buildTypes {
+            debug {
+                debuggable true
+                minifyEnabled false
+            }
+
+            release {
+                debuggable false
+                minifyEnabled false
+                crunchPngs false
+            }
+        }
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+}

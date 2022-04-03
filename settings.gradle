@@ -1,0 +1,23 @@
+pluginManagement {
+    // https://maven.google.com/web/index.html#com.android.tools.build:gradle
+    gradle.ext.buildTools = "com.android.tools.build:gradle:7.0.2"
+
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.namespace == "com.android" || requested.id.name == "kotlin-android-extensions") {
+                useModule(gradle.ext.buildTools)
+            }
+        }
+    }
+}
+
+include ':app'
+include ':config'
+include ':features'
+rootProject.name = "ShowChannels"
